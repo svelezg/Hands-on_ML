@@ -23,13 +23,13 @@ create_model = __import__('model').create_model
 create_callbacks = __import__('model').create_callbacks
 
 warnings.filterwarnings('ignore')
-#mlflow.sklearn.autolog()
-mlflow.keras.autolog()
+mlflow.sklearn.autolog()
+
 app = typer.Typer()
 
 
 @app.command()
-def train(csv_file: str = 'train.csv',
+def train(csv_file: str,
           params_file: str = 'params.yaml'):
     # parameters
     yaml_file = open(params_file)

@@ -29,7 +29,7 @@ def predict(input: str = 'test.csv',
 
     total = data_pred.shape[0]
     survived = sum(data_pred['Survived'] == 1)
-    percentage = round(100 * survived/total, 2)
+    percentage = round(100 * survived / total, 2)
 
     print(f"Survived: {survived}/{total} or {percentage}%")
 
