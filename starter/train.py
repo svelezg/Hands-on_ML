@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 """contains the training experiment"""
 
-import pandas as pd
-import numpy as np
-import keras
 import warnings
 import yaml
 import typer
@@ -11,9 +8,6 @@ import typer
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from keras.wrappers.scikit_learn import KerasClassifier
-
-from sklearn.model_selection import cross_val_score
-from sklearn.metrics import accuracy_score
 
 import mlflow
 
@@ -70,29 +64,7 @@ def train(csv_file: str,
     # metrics
     score_test = \
         round(training.score(X_test, y_test) * 100, 2)
-    print(f"Test Accuracy: {score_test}")
-
-    # mlflow.log_metric('test_accuracy', score_test)
-
-    """
-    scores = cross_val_score(full_pipeline, X_train.values, y_train, cv=5)
-    print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
-    
-    
-    from sklearn.model_selection import StratifiedKFold
-    from sklearn.model_selection import cross_val_score
-    
-    num_folds = 10
-    kfold = StratifiedKFold(n_splits=num_folds,
-                            shuffle=True)
-    
-    
-    
-    cv_results = cross_val_score(full_pipeline,
-                              X_train, y_train,
-                              cv=kfold,
-                              verbose=2)
-    """
+    print(f"\nTest Accuracy: {score_test}")
 
 
 if __name__ == "__main__":

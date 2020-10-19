@@ -1,5 +1,5 @@
 Pipeline(steps=[('custom_imputer', CustomImputer()),
                 ('full_pipeline',
                  FeatureUnion(transformer_list=[('categorical_pipeline',
-                                                 Pipeline(steps=[('cat_selector',
-     ...
+                                                 Pipeline(steps=[('cat_transformer',
+  ...

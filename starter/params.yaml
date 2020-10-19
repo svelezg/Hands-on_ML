@@ -24,12 +24,10 @@ callback_dictionary:
   decay_rate: 1
   save_best: True
   filepath: 'network.h5'
-  verbose: False
+  verbose: True
 
 classifier_dictionary:
-  #build_fn: create_model
-  epochs: 300
+  epochs: 200
   batch_size: 125
   shuffle: True
-  #callbacks: callback_list
-  verbose: False
+  verbose: True

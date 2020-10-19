@@ -1,4 +1,0 @@
-Pipeline(steps=[('num_selector', FeatureSelector(feature_names=None)),
-                ('num_transformer', NumericalTransformer()),
-                ('imputer', SimpleImputer(strategy='median')),
-                ('std_scaler', StandardScaler())])

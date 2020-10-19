@@ -1,0 +1,3 @@
+Pipeline(steps=[('num_transformer', NumericalTransformer()),
+                ('imputer', SimpleImputer(strategy='median')),
+                ('std_scaler', StandardScaler())])

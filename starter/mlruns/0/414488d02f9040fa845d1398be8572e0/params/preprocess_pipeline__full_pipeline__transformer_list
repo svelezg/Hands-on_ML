@@ -1,0 +1,3 @@
+[('categorical_pipeline', Pipeline(steps=[('cat_transformer', CategoricalTransformer()),
+                ('one_hot_encoder', OneHotEncoder(sparse=False))])), ('numerical_pipeline', Pipeline(steps=[('num_transformer', NumericalTransformer()),
+     ...

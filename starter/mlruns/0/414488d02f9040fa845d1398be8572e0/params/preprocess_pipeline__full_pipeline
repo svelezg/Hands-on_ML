@@ -1,0 +1,4 @@
+FeatureUnion(transformer_list=[('categorical_pipeline',
+                                Pipeline(steps=[('cat_transformer',
+                                                 CategoricalTransformer()),
+                                               ...

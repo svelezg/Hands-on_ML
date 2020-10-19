@@ -8,6 +8,4 @@ dependencies:
 - pip:
   - mlflow
   - cloudpickle==1.6.0
-  - keras==2.3.1
-  - tensorflow==2.2.0
 name: mlflow-env

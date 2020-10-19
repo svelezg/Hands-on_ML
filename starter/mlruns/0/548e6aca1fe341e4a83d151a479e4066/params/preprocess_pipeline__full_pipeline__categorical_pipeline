@@ -1,3 +1,0 @@
-Pipeline(steps=[('cat_selector', FeatureSelector(feature_names=None)),
-                ('cat_transformer', CategoricalTransformer()),
-                ('one_hot_encoder', OneHotEncoder(sparse=False))])
