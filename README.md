@@ -1,8 +1,8 @@
 # Hands-on_ML
 
-<img src="https://github.com/svelezg/Hands-on_ML/blob/main/9x99-images/260px-Scikit_learn_logo_small.svg.png" width="250" height="250"/>             |  <img src="https://github.com/svelezg/Hands-on_ML/blob/main/9x99-images/mlflow.png" width="250" height="250"/> | <img src="https://github.com/svelezg/Hands-on_ML/blob/main/9x99-images/pandas.png" width="250" height="250"/>
+<img src="https://github.com/svelezg/Hands-on_ML/blob/main/9x99-images/260px-Scikit_learn_logo_small.svg.png" width="200" />             |  <img src="https://github.com/svelezg/Hands-on_ML/blob/main/9x99-images/mlflow.png" width="200" /> | <img src="https://github.com/svelezg/Hands-on_ML/blob/main/9x99-images/pandas.png" width="200"/>
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src="https://github.com/svelezg/Hands-on_ML/blob/main/9x99-images/dockercompose.png" width="250" height="250"/>  |  <img src="https://github.com/svelezg/Hands-on_ML/blob/main/9x99-images/cloud_lockup.png" width="250" height="250"/>
+<img src="https://github.com/svelezg/Hands-on_ML/blob/main/9x99-images/dockercompose.png" width="200" />  |  <img src="https://github.com/svelezg/Hands-on_ML/blob/main/9x99-images/cloud_lockup.png" width="200" /> | <img src="https://github.com/svelezg/Hands-on_ML/blob/main/9x99-images/kubeflow.jpg" width="200"/>
 
 
 
