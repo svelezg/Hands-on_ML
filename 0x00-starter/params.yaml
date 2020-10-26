@@ -1,0 +1,33 @@
+# params YAML file
+
+dataset_dictionary:
+  label: 'Survived'
+  test_size: 0.1
+
+model_dictionary:
+  nx: 7
+  layers: [128, 128, 1]
+  activations: ['relu', 'relu', 'sigmoid']
+  lambtha: 0
+  keep_prob: 1
+  alpha: 0.01
+  beta1: 0.95
+  beta2: 0.8
+  verbose: False
+
+
+callback_dictionary:
+  alpha: 0.1
+  early_stopping: True
+  patience: 2
+  learning_rate_decay: True
+  decay_rate: 1
+  save_best: True
+  filepath: 'network.h5'
+  verbose: True
+
+classifier_dictionary:
+  epochs: 200
+  batch_size: 125
+  shuffle: True
+  verbose: True

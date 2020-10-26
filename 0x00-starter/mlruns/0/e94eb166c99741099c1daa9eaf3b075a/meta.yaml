@@ -1,0 +1,15 @@
+artifact_uri: file:///home/svelezg/Hands-on_ML/starter/mlruns/0/e94eb166c99741099c1daa9eaf3b075a/artifacts
+end_time: 1603325764527
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: e94eb166c99741099c1daa9eaf3b075a
+run_uuid: e94eb166c99741099c1daa9eaf3b075a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1603325762046
+status: 3
+tags: []
+user_id: svelezg

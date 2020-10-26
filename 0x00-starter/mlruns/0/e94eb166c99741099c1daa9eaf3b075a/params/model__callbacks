@@ -1,0 +1,1 @@
+[<keras.callbacks.callbacks.LearningRateScheduler object at 0x7f9e032e36d0>, <keras.callbacks.callbacks.ModelCheckpoint object at 0x7f9e0332b5b0>, <keras.callbacks.callbacks.EarlyStopping object at 0x7f9e03457340>]
