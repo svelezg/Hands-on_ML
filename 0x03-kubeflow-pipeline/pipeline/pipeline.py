@@ -24,26 +24,24 @@ def training(epochs: int,
             f"{batch_size}",
         ],
         file_outputs={
-            "mlpipeline-parameters": "/mlpipeline-parameters.json",
             "mlpipeline-metrics": "/mlpipeline-metrics.json",
             "mlpipeline-ui-metadata": "/mlpipeline-ui-metadata.json",
+
         },
         output_artifact_paths={
-            "mlpipeline-parameters": "/mlpipeline-parameters.json",
             "mlpipeline-metrics": "/mlpipeline-metrics.json",
             "mlpipeline-ui-metadata": "/mlpipeline-ui-metadata.json",
         },
     )
 
 
-@kfp.dsl.pipeline(name="training pipeline",
-                  description="sigle step pipeline for training")
-def pipeline(epochs: int = 200,
-             batch_size: int = 125):
+@kfp.dsl.pipeline(name="training_pipeline",
+                  description="single step pipeline for training")
+def pipeline(epochs: int = 200, batch_size: int = 125):
     training_step = training(
         epochs=epochs,
-        batch_size=batch_size,
+        batch_size=batch_size
     )
 
 
-kfp.compiler.Compiler().compile(pipeline, "pipeline.yml")
+kfp.compiler.Compiler().compile(pipeline, "pipeline.yaml")

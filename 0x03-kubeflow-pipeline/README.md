@@ -36,7 +36,7 @@ e2-standard-8
 
 After creating and starting the VM follow the next step to get to the training pipeline.
 
-## Installation
+## Kubeflow installation
 Open the VM SSH connection
 
 ### Clone the repo
@@ -44,6 +44,9 @@ Open the VM SSH connection
 git glone
 cd 0x03-kubeflow-pipeline
 ```
+
+## Local test (VM) with Python
+python main.py --epochs 2
 
 ### wget installation
 ```
@@ -105,7 +108,6 @@ To restart minikube after installation run
 minikube start
 ```
 
-
 ### kubernetes dashboard (optional)
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
@@ -146,10 +148,6 @@ kubectl port-forward -n istio-system svc/istio-ingressgateway 8080:80
 pip3 install kfp --upgrade
 ```
 
-## local test python
-python main.py --epochs 2
-
-
 ## Deployment and run
 We will deploy and later build the training pipeline
 
@@ -162,7 +160,7 @@ kfp pipeline upload-version pipeline.yml -p c554c4c8-b672-4c0f-90d6-24e7132ee06c
 ```
 
 
-# Build and push docker image
+## Build and push docker image
 Build image (do not forget the point at the end)
 ```
 sudo docker build -t pipeline .
@@ -196,12 +194,12 @@ docker push gcr.io/{PROJECT NAME AND ID}/pipeline
 ```
 Look for the pushed image in the container registry and make it public.
 
-# Upload and run the pipeline
+## Upload and run the pipeline
 On the left panel open pipeline. Give it a name and choose upload from file.
-Select the tar file
+Select the pipeline.tar.gz file
 
 Review the yaml file that kubeflow automatically creates.
 
 
-##
+### Pipeline run
 Make a new experiment and within it a new run.

@@ -326,22 +326,6 @@ def train(epochs: int = 200,
     classifier_dict['epochs'] = epochs
     classifier_dict['batch_size'] = batch_size
 
-    parameters = {
-        "parameters": [
-            {
-                "dataset": dataset_dict,
-                "callbacks": callback_dict,
-                "training": classifier_dict,
-            },
-        ]
-    }
-
-    json_file = str(ROOT / "mlpipeline-parameters.json")
-    print('json file path:', json_file)
-
-    with file_io.FileIO(json_file, "w") as f:
-        json.dump(parameters, f)
-
     # data loading
     data = load(csv_file)
 
@@ -385,6 +369,13 @@ def train(epochs: int = 200,
         plt.show()
 
     metadata = {
+        "inputs": [
+            {
+                "dataset": dataset_dict,
+                "callbacks": callback_dict,
+                "training": classifier_dict,
+            },
+        ],
         "outputs": [
             {
                 "type": "web-app",
