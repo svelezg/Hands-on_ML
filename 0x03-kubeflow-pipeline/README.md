@@ -1,29 +1,56 @@
 # 0x03 Kubeflow-pipeline
 
-## Intro
 
+<img src="https://github.com/svelezg/Hands-on_ML/blob/main/9x99-images/kubeflow.jpg" width="350"/>
+
+## Intro
+Kubeflow goal is to make deployments of machine learning (ML) workflows on Kubernetes simple, portable and scalable. 
+The spitit is to to provide a straightforward way to deploy best-of-breed open-source systems for ML to diverse infrastructures. 
+Anywhere you are running Kubernetes, you should be able to run Kubeflow.
+
+One of Kubeflow components are Pipelines. It is a platform for building and deploying portable and scalable 
+end-to-end ML workflows, based on containers.
+
+From the the Kubeflow Pipelines platform documentation the following goals:
+
+* End-to-end orchestration: enabling and simplifying the orchestration of machine learning pipelines.
+
+* Easy experimentation: making it easy for you to try numerous ideas and techniques and manage your various trials/experiments.
+
+* Easy re-use: enabling you to re-use components and pipelines to quickly cobble together end-to-end solutions, without having to rebuild each time.
+
+
+## Objective
+Carry out a single step pipeline for training within Kubeflow.
 
 ## GCP Virtual machine
+Kubeflow can run anywhere Kubernetes can run. That holds only if there are enough computational resources. For academic purposes, the suggested choice is to use GCP free credits to spin a Virtual machine big enough to work comfortably.
+
+Suggested is:
+
 e2-standard-8 
-    8 vCPUs 
-    32 GB memory
-    100Gb disk
-    debian-10-buster-v20201014	
+*    8 vCPUs 
+*    32 GB memory
+*    100Gb disk
+*    debian-10-buster-v20201014	
 
+After creating and starting the VM follow the next step to get to the training pipeline.
 
-## Clone the repo
+## Installation
+Open the VM SSH connection
 
+### Clone the repo
 ```
 git glone
 cd 0x03-kubeflow-pipeline
 ```
 
-# wget installation
+### wget installation
 ```
 sudo apt-get install wget
 ```
 
-## Docker installation
+### Docker installation
 ```
 sudo apt update
 sudo apt install --yes apt-transport-https ca-certificates curl gnupg2 software-properties-common
@@ -58,7 +85,7 @@ sudo apt-get update
 sudo apt-get install -y kubectl=1.14.10-00
 ```
 
-# minikube installation
+### minikube installation
 ```
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
 sudo dpkg -i minikube_latest_amd64.deb
@@ -114,7 +141,7 @@ kubectl port-forward -n istio-system svc/istio-ingressgateway 8080:80
 ```
 
 
-## Kubeflow Pipelines SDK installation
+### Kubeflow Pipelines SDK installation
 ```
 pip3 install kfp --upgrade
 ```
@@ -122,6 +149,9 @@ pip3 install kfp --upgrade
 ## local test python
 python main.py --epochs 2
 
+
+## Deployment and run
+We will deploy and later build the training pipeline
 
 ### pipeline compilation
 Choose and compile a pipeline
@@ -132,23 +162,46 @@ kfp pipeline upload-version pipeline.yml -p c554c4c8-b672-4c0f-90d6-24e7132ee06c
 ```
 
 
-# build and push image
-Build image
+# Build and push docker image
+Build image (do not forget the point at the end)
+```
 sudo docker build -t pipeline .
+```
 
-Test locally 
+Test locally
+ ```
 sudo docker run -i --name pipeline -p 8000:8000 pipeline
+```
 
-
+Open the container console
+```
 docker exec -it pipeline bash
+```
 Test with python
-python training/main.py --epochs 2
+```
+python training/main.py --epochs 20
+```
 Test with bash scrip
+```
 ./training/main.sh
+```
 
-
+Tag the docker image. You can use either DockerHub or Google Container Registry (gcr). Remember to Enable the Container Registry API
+```
 docker tag pipeline gcr.io/{PROJECT NAME AND ID]/pipeline
+```
+Puch the image (may take some minutes)
+```
+docker push gcr.io/{PROJECT NAME AND ID}/pipeline
+```
+Look for the pushed image in the container registry and make it public.
 
-Enable the Container Registry API
-docker push gcr.io/otherproject-294618/cubo
-Make image public
+# Upload and run the pipeline
+On the left panel open pipeline. Give it a name and choose upload from file.
+Select the tar file
+
+Review the yaml file that kubeflow automatically creates.
+
+
+##
+Make a new experiment and within it a new run.
