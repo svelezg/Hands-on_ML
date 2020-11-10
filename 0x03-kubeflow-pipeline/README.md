@@ -1,7 +1,7 @@
 # 0x03 Kubeflow-pipeline
 
 
-<img src="https://github.com/svelezg/Hands-on_ML/blob/main/9x99-images/kubeflow.jpg" width="350"/>
+<img src="https://github.com/svelezg/Hands-on_ML/blob/main/9x99-images/kubeflow.jpg" width="450"/>
 
 ## Intro
 Kubeflow goal is to make deployments of machine learning (ML) workflows on Kubernetes simple, portable and scalable. 
